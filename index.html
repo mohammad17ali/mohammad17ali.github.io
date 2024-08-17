@@ -3,102 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal portfolio of [Your Name]">
-    <title>[Your Name] - Personal Portfolio</title>
+    <title>Mohammad Ali - Product Manager & Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
+
         .container {
             width: 80%;
-            margin: 20px auto;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
         }
-        .profile-img {
-            display: block;
-            max-width: 150px;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
+
+        header {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: var(--secondary-color) 3px solid;
         }
-        h1, h2 {
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header .highlight, header .current a {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        #showcase {
+            min-height: 400px;
+            background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
             text-align: center;
+            color: #ffffff;
         }
-        p {
-            line-height: 1.6;
+
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
         }
-        .projects, .experience {
-            margin-bottom: 40px;
+
+        #showcase p {
+            font-size: 20px;
         }
+
+        .button {
+            display: inline-block;
+            font-size: 18px;
+            color: #ffffff;
+            background: var(--accent-color);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: var(--secondary-color);
+        }
+
+        #main {
+            margin-top: 20px;
+        }
+
+        .box {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box h3 {
+            color: var(--primary-color);
+        }
+
+        #skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #skills li {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            border-radius: 3px;
+        }
+
         footer {
-            background-color: #333;
-            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: var(--secondary-color);
             text-align: center;
-            padding: 10px 0;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>[Your Name]</h1>
-        <p>Tech Enthusiast | Product Manager | Software Developer</p>
+        <div class="container">
+            <h1><span class="highlight">Mohammad Ali</span></h1>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#showcase">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <img src="your-photo.jpg" alt="[Your Name]" class="profile-img">
-            <p>Hi, I'm [Your Name], a product manager with a strong background in software development. I specialize in creating innovative solutions that drive business growth. With experience in various technologies, I’m passionate about turning ideas into reality.</p>
-        </section>
+    <section id="showcase">
+        <div class="container">
+            <h1>Product Manager & Mechanical Engineer</h1>
+            <p>Innovating at the intersection of technology and business</p>
+            <a href="#" class="button">Download Resume</a>
+        </div>
+    </section>
 
-        <section id="projects" class="projects">
-            <h2>Projects</h2>
-            <p><strong>Project 1:</strong> NutriScan - A platform for tracking calorie and nutrient intake using computer vision.</p>
-            <p><strong>Project 2:</strong> AI-Powered Personal Finance Assistant - Analyzing financial data with machine learning techniques.</p>
-            <!-- Add more projects here -->
-        </section>
+    <section id="main">
+        <div class="container">
+            <section id="experience">
+                <h2>Experience</h2>
+                <div class="box">
+                    <h3>Founder - Karobar AI</h3>
+                    <p>Developed an AI-driven ERP solution for India's unorganized retail sector</p>
+                </div>
+                <div class="box">
+                    <h3>Innovation Lead Intern - Emids Technologies</h3>
+                    <p>Led a team of 5 interns, managing a portfolio of 10+ software development projects</p>
+                </div>
+                <div class="box">
+                    <h3>Operations Intern - CoinDCX</h3>
+                    <p>Developed an Auto Inventory Replenishment Model, reducing operation time by 30%</p>
+                </div>
+            </section>
 
-        <section id="experience" class="experience">
-            <h2>Experience</h2>
-            <p><strong>Founder:</strong> Rozgar - Connecting job seekers with employers in the blue-collar sector.</p>
-            <p><strong>Product Operations Intern:</strong> CoinDCX - Worked on improving product features and user experience.</p>
-            <!-- Add more experiences here -->
-        </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="box">
+                    <h3>NutriScan - Nutrition Tracking Platform</h3>
+                    <p>Developed a comprehensive nutrition tracking platform using computer vision and barcode scanning</p>
+                </div>
+                <div class="box">
+                    <h3>Electric Car Design</h3>
+                    <p>Designed an all-electric car with optimized aerodynamics, increasing range and efficiency</p>
+                </div>
+                <div class="box">
+                    <h3>Skin Cancer Detection Model</h3>
+                    <p>Built a deep learning model achieving 93% accuracy in skin cancer detection</p>
+                </div>
+            </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>You can reach me via email at: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        </section>
-    </div>
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Product Management</li>
+                    <li>Data Analysis</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Machine Learning</li>
+                    <li>AWS</li>
+                    <li>Market Research</li>
+                    <li>Agile Methodologies</li>
+                </ul>
+            </section>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-    <
+        <p>&copy; 2024 Mohammad Ali. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const header = document.querySelector('header');
+            const showcaseHeight = document.querySelector('#showcase').offsetHeight;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > showcaseHeight - 50) {
+                    header.style.backgroundColor = 'rgba(52, 152, 219, 0.9)';
+                } else {
+                    header.style.backgroundColor = 'var(--primary-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
