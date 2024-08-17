@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Ali</title>
+    <title>Mohammad Ali - Product Manager & Engineer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
-            --primary-color: #9D0606;   /* Dark Brownish Red */
-            --secondary-color: #D32D41; /* Crimson */
-            --accent-color: #043F84;    /* Dark Blue */
-            --background-color: #000000;/* Black */
-            --text-color: #20283E;      /* Navy Blue */
-            --highlight-color: #488A99; /* Medium Blue */
+            --primary-color: #1F3F49;  /* Dark Blue */
+            --secondary-color: #6AB187;  /* Mint Green */
+            --accent-color: #D32D41;  /* Red */
+            --background-color: #20283E;  /* Darker Blue */
+            --text-color: #DADADA;  /* Light Gray */
+            --hover-text-color: #488A99;  /* Teal */
         }
 
         body {
@@ -22,7 +22,6 @@
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s ease;
         }
 
         .container {
@@ -34,30 +33,27 @@
 
         header {
             background: var(--primary-color);
-            color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
+            color: var(--text-color);
+            padding-top: 10px;
+            min-height: 50px;
             border-bottom: var(--secondary-color) 3px solid;
             transition: all 0.3s ease;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
         }
 
         header a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         header .highlight, header .current a {
-            color: var(--highlight-color);
+            color: var(--accent-color);
             font-weight: bold;
         }
 
         header a:hover {
-            color: var(--secondary-color);
+            color: var(--hover-text-color);
             font-weight: bold;
         }
 
@@ -65,10 +61,9 @@
             min-height: 400px;
             background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
             text-align: center;
-            color: #ffffff;
+            color: var(--text-color);
             position: relative;
             overflow: hidden;
-            padding-top: 150px;
         }
 
         #showcase::before {
@@ -78,7 +73,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(31, 63, 73, 0.7);  /* Dark Teal overlay */
+            background: rgba(31, 63, 73, 0.7);  /* Dark Blue overlay */
         }
 
         #showcase .content {
@@ -90,7 +85,6 @@
             margin-top: 100px;
             font-size: 55px;
             margin-bottom: 10px;
-            color: var(--accent-color);
         }
 
         #showcase p {
@@ -101,7 +95,7 @@
             display: inline-block;
             font-size: 18px;
             color: #ffffff;
-            background: var(--secondary-color);
+            background: var(--accent-color);
             padding: 10px 20px;
             border: none;
             cursor: pointer;
@@ -111,17 +105,17 @@
         }
 
         .button:hover {
-            background: var(--accent-color);
+            background: var(--secondary-color);
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         #main {
-            margin-top: 80px;
+            margin-top: 20px;
         }
 
         .box {
-            background: #ffffff;
+            background: var(--primary-color);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
@@ -147,8 +141,8 @@
             display: inline-block;
             margin: 5px;
             padding: 8px 15px;
-            background-color: var(--highlight-color);
-            color: #ffffff;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             border-radius: 20px;
             transition: all 0.3s ease;
         }
@@ -162,7 +156,7 @@
         footer {
             padding: 20px;
             margin-top: 20px;
-            color: #ffffff;
+            color: var(--text-color);
             background-color: var(--primary-color);
             text-align: center;
             border-top-left-radius: 30px;
@@ -170,7 +164,7 @@
         }
 
         .social-icons a {
-            color: #ffffff;
+            color: var(--text-color);
             margin: 0 10px;
             font-size: 24px;
             transition: all 0.3s ease;
@@ -275,4 +269,5 @@
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:m
+            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
+       
