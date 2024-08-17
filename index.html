@@ -7,11 +7,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
+            --primary-color: #f0e6d2;  /* Cream color */
+            --secondary-color: #5d4037;  /* Brown color */
+            --accent-color: #8d6e63;  /* Lighter brown */
+            --background-color: #fafafa;
+            --text-color: #333333;
         }
 
         body {
@@ -32,14 +32,15 @@
 
         header {
             background: var(--primary-color);
-            color: #ffffff;
+            color: var(--text-color);
             padding-top: 30px;
             min-height: 70px;
             border-bottom: var(--secondary-color) 3px solid;
+            transition: all 0.3s ease;
         }
 
         header a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
@@ -51,7 +52,7 @@
         }
 
         header a:hover {
-            color: var(--accent-color);
+            color: var(--secondary-color);
             font-weight: bold;
         }
 
@@ -59,7 +60,24 @@
             min-height: 400px;
             background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
             text-align: center;
-            color: #ffffff;
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(240, 230, 210, 0.7);  /* Cream color overlay */
+        }
+
+        #showcase .content {
+            position: relative;
+            z-index: 1;
         }
 
         #showcase h1 {
@@ -76,16 +94,19 @@
             display: inline-block;
             font-size: 18px;
             color: #ffffff;
-            background: var(--accent-color);
+            background: var(--secondary-color);
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 25px;
         }
 
         .button:hover {
-            background: var(--secondary-color);
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         #main {
@@ -94,19 +115,20 @@
 
         .box {
             background: #ffffff;
-            border-radius: 5px;
+            border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .box h3 {
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
 
         #skills ul {
@@ -117,10 +139,17 @@
         #skills li {
             display: inline-block;
             margin: 5px;
-            padding: 5px 10px;
-            background-color: var(--secondary-color);
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #skills li:hover {
+            background-color: var(--accent-color);
             color: #ffffff;
-            border-radius: 3px;
+            transform: translateY(-2px);
         }
 
         footer {
@@ -129,17 +158,35 @@
             color: #ffffff;
             background-color: var(--secondary-color);
             text-align: center;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
 
         .social-icons a {
             color: #ffffff;
             margin: 0 10px;
             font-size: 24px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -159,7 +206,7 @@
     </header>
 
     <section id="showcase">
-        <div class="container">
+        <div class="container content">
             <h1>Product Manager & Mechanical Engineer</h1>
             <p>Innovating at the intersection of technology and business</p>
             <a href="#" class="button">Download Resume</a>
@@ -170,15 +217,15 @@
         <div class="container">
             <section id="experience">
                 <h2>Experience</h2>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>Founder - Karobar AI</h3>
                     <p>Developed an AI-driven ERP solution for India's unorganized retail sector</p>
                 </div>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>Innovation Lead Intern - Emids Technologies</h3>
                     <p>Led a team of 5 interns, managing a portfolio of 10+ software development projects</p>
                 </div>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>Operations Intern - CoinDCX</h3>
                     <p>Developed an Auto Inventory Replenishment Model, reducing operation time by 30%</p>
                 </div>
@@ -186,15 +233,15 @@
 
             <section id="projects">
                 <h2>Projects</h2>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>NutriScan - Nutrition Tracking Platform</h3>
                     <p>Developed a comprehensive nutrition tracking platform using computer vision and barcode scanning</p>
                 </div>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>Electric Car Design</h3>
                     <p>Designed an all-electric car with optimized aerodynamics, increasing range and efficiency</p>
                 </div>
-                <div class="box">
+                <div class="box fade-in-up">
                     <h3>Skin Cancer Detection Model</h3>
                     <p>Built a deep learning model achieving 93% accuracy in skin cancer detection</p>
                 </div>
@@ -232,10 +279,25 @@
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > showcaseHeight - 50) {
-                    header.style.backgroundColor = 'rgba(52, 152, 219, 0.9)';
+                    header.style.backgroundColor = 'rgba(240, 230, 210, 0.9)';
+                    header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
                 } else {
                     header.style.backgroundColor = 'var(--primary-color)';
+                    header.style.boxShadow = 'none';
                 }
+            });
+
+            // Intersection Observer for fade-in effect
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.box').forEach(box => {
+                observer.observe(box);
             });
         });
     </script>
