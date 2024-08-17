@@ -38,7 +38,10 @@
             min-height: 30px;
             border-bottom: var(--secondary-color) 2px solid;
             transition: all 0.3s ease;
-            position: fixed;
+            position: fixed; /* Lock the header in place */
+            top: 0;
+            width: 100%; /* Make sure it spans the full width of the viewport */
+            z-index: 1000;
         }
 
         header a {
