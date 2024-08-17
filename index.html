@@ -7,11 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
-            --primary-color: #f0e6d2;  /* Cream color */
-            --secondary-color: #5d4037;  /* Brown color */
-            --accent-color: #8d6e63;  /* Lighter brown */
-            --background-color: #fafafa;
-            --text-color: #333333;
+            --primary-color: #1F3F49;   /* Dark Teal */
+            --secondary-color: #D32D41; /* Crimson */
+            --accent-color: #6AB187;    /* Light Green */
+            --background-color: #DADADA;/* Light Grey */
+            --text-color: #20283E;      /* Navy Blue */
+            --highlight-color: #488A99; /* Medium Blue */
         }
 
         body {
@@ -21,6 +22,7 @@
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease;
         }
 
         .container {
@@ -32,22 +34,25 @@
 
         header {
             background: var(--primary-color);
-            color: var(--text-color);
+            color: #ffffff;
             padding-top: 30px;
             min-height: 70px;
             border-bottom: var(--secondary-color) 3px solid;
             transition: all 0.3s ease;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
         header a {
-            color: var(--text-color);
+            color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
         }
 
         header .highlight, header .current a {
-            color: var(--accent-color);
+            color: var(--highlight-color);
             font-weight: bold;
         }
 
@@ -60,9 +65,10 @@
             min-height: 400px;
             background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
             text-align: center;
-            color: var(--text-color);
+            color: #ffffff;
             position: relative;
             overflow: hidden;
+            padding-top: 150px;
         }
 
         #showcase::before {
@@ -72,7 +78,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(240, 230, 210, 0.7);  /* Cream color overlay */
+            background: rgba(31, 63, 73, 0.7);  /* Dark Teal overlay */
         }
 
         #showcase .content {
@@ -84,6 +90,7 @@
             margin-top: 100px;
             font-size: 55px;
             margin-bottom: 10px;
+            color: var(--accent-color);
         }
 
         #showcase p {
@@ -110,7 +117,7 @@
         }
 
         #main {
-            margin-top: 20px;
+            margin-top: 80px;
         }
 
         .box {
@@ -140,8 +147,8 @@
             display: inline-block;
             margin: 5px;
             padding: 8px 15px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            background-color: var(--highlight-color);
+            color: #ffffff;
             border-radius: 20px;
             transition: all 0.3s ease;
         }
@@ -156,7 +163,7 @@
             padding: 20px;
             margin-top: 20px;
             color: #ffffff;
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             text-align: center;
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
@@ -170,7 +177,7 @@
         }
 
         .social-icons a:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
             transform: translateY(-3px);
         }
 
@@ -268,38 +275,4 @@
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const header = document.querySelector('header');
-            const showcaseHeight = document.querySelector('#showcase').offsetHeight;
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > showcaseHeight - 50) {
-                    header.style.backgroundColor = 'rgba(240, 230, 210, 0.9)';
-                    header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
-                } else {
-                    header.style.backgroundColor = 'var(--primary-color)';
-                    header.style.boxShadow = 'none';
-                }
-            });
-
-            // Intersection Observer for fade-in effect
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-up');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.box').forEach(box => {
-                observer.observe(box);
-            });
-        });
-    </script>
-</body>
-</html>
+            <a href="mailto:m
