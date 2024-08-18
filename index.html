@@ -158,12 +158,38 @@
             color: var(--hover-text-color);
         }
 
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
         footer {
             background-color: var(--footer-background);
             padding: 0px;
             text-align: center;
             color: var(--text-color);
-            border-top: 1px solid var(--text-color);
             border-radius: 20px;
             margin-top: 20px;
             margin-left: 200px;
@@ -280,8 +306,12 @@
     </div>
 
     <footer>
-        <p>Connect with me on <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Twitter</a></p>
-        <p>&copy; 2024 Mohammad Ali. All Rights Reserved.</p>
+        <p>&copy; 2024 Mohammad Ali. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
     </footer>
 </body>
 </html>
