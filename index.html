@@ -3,280 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Ali</title>
+    <title>Mohammad Ali - Product Manager and Tech Enthusiast</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
-            --primary-color: #f0e6d2;  /* Cream color */
-            --secondary-color: #5d4037;  /* Brown color */
-            --accent-color: #8d6e63;  /* Lighter brown */
-            --background-color: #fafafa;
-            --text-color: #333333;
-            --hover-text-color: #488A99;  /* Teal */
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --sidebar-color: #1a1a1a;
+            --accent-color: #d5e3f2;
+            --card-background: #2a2a2a;
+            --skill-background: #787272;   
+            --skill-hover: #b84141;
+
+            --hover-background: #ffffff;
+            --hover-text-color: #000000;
+            --footer-background: #1a1a1a;
+            --hover-sd-text-color: #ffffff;
+            --sd-text-color : #777474; 
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
+        body, html {
             margin: 0;
-            padding-top: 75px;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        header {
-            background: var(--primary-color);
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
             color: var(--text-color);
-            padding-top: 5px;
-            min-height: 30px;
-            border-bottom: var(--secondary-color) 2px solid;
-            transition: all 0.3s ease;
-            position: fixed; /* Lock the header in place */
-            top: 0;
-            width: 100%; /* Make sure it spans the full width of the viewport */
-            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        header a {
-            color: var(--text-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        header .highlight, header .current a {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        header a:hover {
-            color: var(--hover-text-color);
-            font-weight: bold;
-        }
-
-        #showcase {
-            min-height: 400px;
-            background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
-            text-align: center;
-            color: var(--text-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        #showcase::before {
-            content: '';
-            position: absolute;
+        .sidebar {
+            width: 150px;
+            background-color: var(--sidebar-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: width 0.3s;
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(31, 63, 73, 0.7);  /* Dark Blue overlay */
+            height: 100%;
+            border-radius: 20px;
         }
 
-        #showcase .content {
-            position: relative;
-            z-index: 1;
+        .sidebar:hover {
+            width: 250px;
         }
 
-        #showcase h1 {
-            margin-top: 100px;
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-
-        #showcase p {
-            font-size: 20px;
-        }
-
-
-        #showcase h1:hover,
-        #showcase p:hover {
-            transform: scale(1.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .button {
-            display: inline-block;
-            font-size: 18px;
-            color: #ffffff;
-            background: var(--accent-color);
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+        .sidebar a {
+            color: var(--sd-text-color);
             text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 25px;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-align: center;
         }
 
-        .button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .sidebar a.active {
+            font-weight: bold;
+            background-color: transparent;
         }
 
-        #main {
-            margin-top: 20px;
+        .sidebar a:hover, .sidebar a:hover i {
+            background-color: transparent;
+            color: var(--hover-sd-text-color);
         }
 
-        .box {
-            background: var(--primary-color);
-            border-radius: 15px;
+        .sidebar a i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            margin-left: 200px;
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar:hover + .main-content {
+            margin-left: 250px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #cccccc;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--accent-color);
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
-        .box:hover {
+        .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: var(--hover-background);
+            color: var(--hover-text-color);
         }
 
-        .box h3 {
-            color: var(--secondary-color);
+        ul {
+            padding-left: 20px;
         }
 
-        #skills ul {
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             list-style-type: none;
             padding: 0;
         }
 
-        #skills li {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 15px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            border-radius: 20px;
-            transition: all 0.3s ease;
+        .skills-list li {
+            background-color: var(--skill-background);
+            padding: 5px 10px;
+            border-radius: 25px;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
-        #skills li:hover {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            transform: translateY(-2px);
+        .skills-list li:hover {
+            transform: scale(1.1);
+            background-color: var(--skill-hover);
+            color: var(--hover-text-color);
         }
 
         footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: var(--text-color);
-            background-color: var(--primary-color);
+            background-color: var(--footer-background);
+            padding: 0px;
             text-align: center;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
-
-        .social-icons a {
             color: var(--text-color);
-            margin: 0 10px;
-            font-size: 24px;
-            transition: all 0.3s ease;
+            border-top: 1px solid var(--text-color);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-left: 200px;
+            position: relative;
         }
 
-        .social-icons a:hover {
+        footer a {
             color: var(--accent-color);
-            transform: translateY(-3px);
+            text-decoration: none;
+            margin: 0 10px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
+    <div class="sidebar">
+        <a href="#education"> Education</a>
+        <a href="#experience"> Experience</a>
+        <a href="#projects" class="active"> Projects</a>
+        <a href="#startup">Startup</a>
+        <a href="#skills">Skills</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div>
+                <h1>Mohammad Ali</h1>
+                <p>Product Manager and Tech Enthusiast</p>
+            </div>
+            <div class="profile-pic"></div>
+        </div>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="project-card">
+                <h3>B.Tech in Mechanical Engineering</h3>
                 <ul>
-                    <li class="current"><a href="#showcase">Home</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li>Graduated from IIT Madras with a B.Tech degree in Mechanical Engineering.</li>
+                    <li>Final Year Project: Application of computer vision in robotics.</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </section>
 
-    <section id="showcase">
-        <div class="container content">
-            <h1>Mohammad Ali</h1>
-            <p>Product Manager and Tech Enthusiast</p>
-            <a href="#" class="button">Download Resume</a>
-        </div>
-    </section>
-
-    <section id="main">
-        <div class="container">
-            <section id="experience">
-                <h2>Experience</h2>
-                <div class="box fade-in-up">
-                    <h3>Founder - Karobar AI</h3>
-                    <p>Developed an AI-driven ERP solution for India's unorganized retail sector</p>
-                </div>
-                <div class="box fade-in-up">
-                    <h3>Innovation Lead Intern - Emids Technologies</h3>
-                    <p>Led a team of 5 interns, managing a portfolio of 10+ software development projects</p>
-                </div>
-                <div class="box fade-in-up">
-                    <h3>Operations Intern - CoinDCX</h3>
-                    <p>Developed an Auto Inventory Replenishment Model, reducing operation time by 30%</p>
-                </div>
-            </section>
-
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="box fade-in-up">
-                    <h3>NutriScan - Nutrition Tracking Platform</h3>
-                    <p>Developed a comprehensive nutrition tracking platform using computer vision and barcode scanning</p>
-                </div>
-                <div class="box fade-in-up">
-                    <h3>Electric Car Design</h3>
-                    <p>Designed an all-electric car with optimized aerodynamics, increasing range and efficiency</p>
-                </div>
-                <div class="box fade-in-up">
-                    <h3>Skin Cancer Detection Model</h3>
-                    <p>Built a deep learning model achieving 93% accuracy in skin cancer detection</p>
-                </div>
-            </section>
-
-            <section id="skills">
-                <h2>Skills</h2>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="project-card">
+                <h3>Product Manager at Karobar AI</h3>
                 <ul>
-                    <li>Product Management</li>
-                    <li>Data Analysis</li>
-                    <li>Python</li>
-                    <li>SQL</li>
-                    <li>Machine Learning</li>
-                    <li>AWS</li>
-                    <li>Market Research</li>
-                    <li>Agile Methodologies</li>
+                    <li>Led the development of AI-driven ERP solutions for retail traders.</li>
+                    <li>Implemented product strategies to drive growth and efficiency.</li>
                 </ul>
-            </section>
-        </div>
-    </section>
+            </div>
+            <div class="project-card">
+                <h3>Product Operations Intern at CoinDCX</h3>
+                <ul>
+                    <li>Optimized product operations for a leading cryptocurrency exchange.</li>
+                    <li>Conducted market research and data analysis to enhance product offerings.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Multi Agent Robotic System</h3>
+                <ul>
+                    <li>This project dealt with robotic systems coordination which contain more than two robots to be labelled as multi-agent robotic systems.</li>
+                    <li>Multi-Agent Robotic System (MARS) needs a coordination system to perform the given tasks.</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3>NutriScan - Nutrition Tracking Platform</h3>
+                <ul>
+                    <li>Developed a comprehensive nutrition tracking platform using computer vision and barcode scanning.</li>
+                    <li>Implemented features for manual entry and image-based food recognition.</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3>Electric Car Design</h3>
+                <ul>
+                    <li>Designed an all-electric car with optimized aerodynamics, increasing range and efficiency.</li>
+                    <li>Developed a battery management system simulation for improved performance and safety.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="startup">
+            <h2>Startup</h2>
+            <div class="project-card">
+                <h3>Rozgar - Blue-Collar Job Platform</h3>
+                <ul>
+                    <li>Founded a platform to connect job seekers with employers in the blue-collar job sector in India.</li>
+                    <li>Promoted transparency and eliminated unfair practices in the hiring process.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Product Management</li>
+                <li>Data Analysis</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>Machine Learning</li>
+                <li>AWS</li>
+                <li>Market Research</li>
+                <li>Agile Methodologies</li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2024 Mohammad Ali. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
-       
+        <p>Connect with me on <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Twitter</a></p>
+        <p>&copy; 2024 Mohammad Ali. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
