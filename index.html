@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Ali - Product Manager and Tech Enthusiast</title>
+    <title>Mohammad Ali</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         :root {
@@ -12,25 +12,28 @@
             --sidebar-color: #1a1a1a;
             --accent-color: #d5e3f2;
             --card-background: #2a2a2a;
-            --skill-background: #787272;   
+            --skill-background: #787272;
             --skill-hover: #b84141;
-
-            --hover-background: #ffffff;
+            --hover-background: #ff7e3e;
             --hover-text-color: #000000;
             --footer-background: #1a1a1a;
             --hover-sd-text-color: #ffffff;
-            --sd-text-color : #777474; 
+            --sd-text-color : #777474;
+            --button-color: #ff7e3e;
+            --sd-text-color-bold : #777474;
+            --primary-button-color: #2dde98; /* Brighter color for 'View Work' */
+            --secondary-button-color: #ffcc00; /* Brighter color for 'Contact Me' */
         }
 
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Tahoma', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .sidebar {
@@ -40,23 +43,69 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            transition: width 0.3s;
+            justify-content: space-between;
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
-            border-radius: 20px;
+            border-radius: 0px;
         }
 
-        .sidebar:hover {
-            width: 250px;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .download-resume {
+        margin-top: 20px;
+        margin: 3px 0;
+        padding-bottom: 50px;
+        background-color: #ff4d4d; /* Static pinkish red color */
+        color: #fff;
+        text-align: center;
+        border-radius: 50px; /* More rounded button */
+        text-decoration: none;
+        border: none; /* Removed border */
+        transition: background-color 0.3s, color 0.3s;
+        }
+
+        .download-resume:hover {
+            background-color: #ffffff; /* White on hover */
+            color: #ff4d4d; /* Pinkish red text on hover */
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .download-buttons .button {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .download-buttons .button.primary {
+            background-color: #ff4d4d;
+        }
+
+        .download-buttons .button.secondary {
+            background-color: var(--primary-button-color);
         }
 
         .sidebar a {
             color: var(--sd-text-color);
             text-decoration: none;
-            padding: 10px;
+            padding: 5px;
             margin: 5px 0;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
@@ -88,24 +137,15 @@
             padding: 40px;
             overflow-y: auto;
             transition: margin-left 0.3s;
-        }
-
-        .sidebar:hover + .main-content {
-            margin-left: 250px;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #cccccc;
+            margin-bottom: 200px;
         }
 
         h1 {
@@ -119,37 +159,69 @@
             margin-top: 40px;
         }
 
-        .project-card {
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .flip-card {
             background-color: var(--card-background);
+            width: 100%;
+            height: 200px;
+            perspective: 1000px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.3s, background-color 0.3s;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
+        .flip-card-front {
+            background-color: var(--card-background);
+            color: var(--text-color);
+        }
+
+        .flip-card-back {
             background-color: var(--hover-background);
-            color: var(--hover-text-color);
-        }
-
-        ul {
-            padding-left: 20px;
+            color: var(--text-color);
+            transform: rotateY(180deg);
         }
 
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 30px; /* Increased gap */
             list-style-type: none;
             padding: 0;
         }
 
         .skills-list li {
             background-color: var(--skill-background);
-            padding: 5px 10px;
-            border-radius: 25px;
+            padding: 15px 20px; /* Increased padding */
+            border-radius: 35px; /* Larger border-radius for bigger bubbles */
             transition: transform 0.3s, background-color 0.3s;
+            font-size: 1em; /* Maintain text size */
         }
 
         .skills-list li:hover {
@@ -158,42 +230,45 @@
             color: var(--hover-text-color);
         }
 
-        .social-icons a {
-            color: #ffffff;
-            margin: 0 10px;
-            font-size: 24px;
-            transition: all 0.3s ease;
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .social-icons a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
+        .action-buttons .button {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .action-buttons .button.primary {
+            background-color: var(--primary-button-color);
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        .action-buttons .button.secondary {
+            background-color: var(--secondary-button-color);
+        }
+
+        .action-buttons .button:hover {
+            transform: translateY(-5px);
+            background-color: var(--hover-background);
         }
 
         footer {
             background-color: var(--footer-background);
-            padding: 0px;
+            padding: 10px;
             text-align: center;
             color: var(--text-color);
-            border-radius: 20px;
-            margin-top: 20px;
-            margin-left: 200px;
+            border-radius: 0px;
             position: relative;
+            width: calc(100% - 200px);
+            margin-left: 200px;
+            margin-top: auto; /* Ensure footer stays at the bottom */
         }
 
         footer a {
@@ -209,11 +284,16 @@
 </head>
 <body>
     <div class="sidebar">
+        <div class="profile-pic"></div>
         <a href="#education"> Education</a>
         <a href="#experience"> Experience</a>
         <a href="#projects" class="active"> Projects</a>
         <a href="#startup">Startup</a>
         <a href="#skills">Skills</a>
+        <div class="download-buttons">
+            <a href="#projects" class="button primary">Download Resume</a>
+        </div>
+        
     </div>
 
     <div class="main-content">
@@ -222,96 +302,102 @@
                 <h1>Mohammad Ali</h1>
                 <p>Product Manager and Tech Enthusiast</p>
             </div>
-            <div class="profile-pic"></div>
+            
         </div>
+        <!-- New Action Buttons -->
+            <div class="action-buttons">
+                <a href="#projects" class="button primary">View Work</a>
+                <a href="#contact" class="button secondary">Contact Me</a>
+            </div>
 
         <section id="education">
             <h2>Education</h2>
-            <div class="project-card">
-                <h3>B.Tech in Mechanical Engineering</h3>
-                <ul>
-                    <li>Graduated from IIT Madras with a B.Tech degree in Mechanical Engineering.</li>
-                    <li>Final Year Project: Application of computer vision in robotics.</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>B.Tech in Mechanical Engineering</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li>Graduated from IIT Madras with a B.Tech degree in Mechanical Engineering.</li>
+                            <li>CGPA: 8.0</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="experience">
             <h2>Experience</h2>
-            <div class="project-card">
-                <h3>Product Manager at Karobar AI</h3>
-                <ul>
-                    <li>Led the development of AI-driven ERP solutions for retail traders.</li>
-                    <li>Implemented product strategies to drive growth and efficiency.</li>
-                </ul>
-            </div>
-            <div class="project-card">
-                <h3>Product Operations Intern at CoinDCX</h3>
-                <ul>
-                    <li>Optimized product operations for a leading cryptocurrency exchange.</li>
-                    <li>Conducted market research and data analysis to enhance product offerings.</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Software Engineer at ABC Tech</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li>Worked on developing software applications for various clients.</li>
+                            <li>Specialized in front-end development and UI/UX design.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="project-card">
-                <h3>Multi Agent Robotic System</h3>
-                <ul>
-                    <li>This project dealt with robotic systems coordination which contain more than two robots to be labelled as multi-agent robotic systems.</li>
-                    <li>Multi-Agent Robotic System (MARS) needs a coordination system to perform the given tasks.</li>
-                </ul>
-            </div>
-            <div class="project-card">
-                <h3>NutriScan - Nutrition Tracking Platform</h3>
-                <ul>
-                    <li>Developed a comprehensive nutrition tracking platform using computer vision and barcode scanning.</li>
-                    <li>Implemented features for manual entry and image-based food recognition.</li>
-                </ul>
-            </div>
-            <div class="project-card">
-                <h3>Electric Car Design</h3>
-                <ul>
-                    <li>Designed an all-electric car with optimized aerodynamics, increasing range and efficiency.</li>
-                    <li>Developed a battery management system simulation for improved performance and safety.</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Inventory Management System</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li>Developed an inventory management system for a retail client.</li>
+                            <li>Implemented features such as stock tracking, order management, and sales analytics.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="startup">
             <h2>Startup</h2>
-            <div class="project-card">
-                <h3>Rozgar - Blue-Collar Job Platform</h3>
-                <ul>
-                    <li>Founded a platform to connect job seekers with employers in the blue-collar job sector in India.</li>
-                    <li>Promoted transparency and eliminated unfair practices in the hiring process.</li>
-                </ul>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Co-Founder of Tech Solutions</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li>Co-founded a tech startup focused on providing software solutions to small businesses.</li>
+                            <li>Led the development of the company's flagship product, an ERP system for small businesses.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
             <ul class="skills-list">
-                <li>Product Management</li>
-                <li>Data Analysis</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
                 <li>Python</li>
-                <li>SQL</li>
-                <li>Machine Learning</li>
-                <li>AWS</li>
-                <li>Market Research</li>
-                <li>Agile Methodologies</li>
+                <li>Project Management</li>
+                <li>Product Development</li>
+                <li>UI/UX Design</li>
             </ul>
         </section>
+
+        
     </div>
 
     <footer>
         <p>&copy; 2024 Mohammad Ali. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/mohammadali16" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/gobalee" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:mohammad.ali.goba@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
+        <a href="#">LinkedIn</a> | <a href="#">GitHub</a>
     </footer>
 </body>
 </html>
