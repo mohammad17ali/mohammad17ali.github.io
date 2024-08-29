@@ -56,36 +56,36 @@
             height: 150px;
             border-radius: 50%;
             background-color: #cccccc;
-            margin-bottom: 20px;
+            background-image: url('https://media.licdn.com/dms/image/v2/D5603AQFntPH6b-Ygrg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1681846642502?e=1729728000&v=beta&t=SCTzFmsxciSOFYuDZujw-OnHgHkdVzT1tjLQoCzdKF4'); /* Replace with the path to your image */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
         }
+        
+        .main-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 10%;
+            background-color: #000000;
+            background-image: url('https://media.licdn.com/dms/image/v2/D5603AQFntPH6b-Ygrg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1681846642502?e=1729728000&v=beta&t=SCTzFmsxciSOFYuDZujw-OnHgHkdVzT1tjLQoCzdKF4'); /* Replace with the path to your image */
+            background-size: cover;
+            background-position: center;
+            margin-top: 10px;
+            margin-right: 40px;
+            margin-bottom: -200px;
+        }
+
+        
 
         .download-resume {
-        margin-top: 20px;
-        margin: 3px 0;
-        padding-bottom: 50px;
-        background-color: #ff4d4d; /* Static pinkish red color */
-        color: #fff;
-        text-align: center;
-        border-radius: 50px; /* More rounded button */
-        text-decoration: none;
-        border: none; /* Removed border */
-        transition: background-color 0.3s, color 0.3s;
-        }
-
-        .download-resume:hover {
-            background-color: #ffffff; /* White on hover */
-            color: #ff4d4d; /* Pinkish red text on hover */
-        }
-
-        .download-buttons {
             display: flex;
             gap: 20px;
             margin-top: 20px;
             margin-bottom: 50px;
         }
 
-        .download-buttons .button {
-            padding: 15px 30px;
+        .download-resume .button {
+            padding: 10px 30px;
             border-radius: 50px;
             text-align: center;
             text-decoration: none;
@@ -94,11 +94,11 @@
             transition: background-color 0.3s, transform 0.3s;
         }
 
-        .download-buttons .button.primary {
+        .download-resume .button.primary {
             background-color: #ff4d4d;
         }
 
-        .download-buttons .button.secondary {
+        .download-resume .button.secondary {
             background-color: var(--primary-button-color);
         }
 
@@ -134,7 +134,7 @@
         .main-content {
             margin-left: 200px;
             flex-grow: 1;
-            padding: 40px;
+            padding: 10px;
             overflow-y: auto;
             transition: margin-left 0.3s;
             display: flex;
@@ -145,7 +145,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 200px;
+            margin-bottom: 150px;
+            margin-top: 40px;
         }
 
         h1 {
@@ -162,50 +163,31 @@
         .cards-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 60px;
         }
 
-        .flip-card {
+        .card {
             background-color: var(--card-background);
             width: 100%;
             height: 200px;
-            perspective: 1000px;
-            margin-bottom: 20px;
             border-radius: 30px;
             overflow: hidden;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
+            gap: 20px;
             padding: 20px;
+            transition: transform 0.3s, background-color 0.3s, border 0.3s;
+            border: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .flip-card-front {
-            background-color: var(--card-background);
-            color: var(--text-color);
-        }
-
-        .flip-card-back {
-            background-color: #cccccc;
+        .card:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
             color: #000000;
-            transform: rotateY(180deg);
+            border-color: #404040;
+            border: 10px;
         }
 
         .skills-list {
@@ -258,6 +240,24 @@
             transform: translateY(-5px);
             background-color: var(--hover-background);
         }
+        .name {
+            display: flex;
+            gap: 20px;
+            margin-top: 0px;
+            padding-bottom: 20px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        .name .button {
+            padding: 0px 0px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
         footer {
             background-color: var(--footer-background);
@@ -285,12 +285,15 @@
 <body>
     <div class="sidebar">
         <div class="profile-pic"></div>
+        <div class="name">
+            <a href="#projects" class="button primary">Mohammad Ali</a>
+        </div>
         <a href="#education"> Education</a>
         <a href="#experience"> Experience</a>
         <a href="#projects" class="active"> Projects</a>
         <a href="#startup">Startup</a>
         <a href="#skills">Skills</a>
-        <div class="download-buttons">
+        <div class="download-resume">
             <a href="#projects" class="button primary">Download Resume</a>
         </div>
         
@@ -302,6 +305,7 @@
                 <h1>Mohammad Ali</h1>
                 <p>Product Manager and Tech Enthusiast</p>
             </div>
+            <div class="main-pic"></div>
             
         </div>
         <!-- New Action Buttons -->
@@ -312,68 +316,60 @@
 
         <section id="education">
             <h2>Education</h2>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>B.Tech in Mechanical Engineering</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <ul>
-                            <li>Graduated from IIT Madras with a B.Tech degree in Mechanical Engineering.</li>
-                            <li>CGPA: 8.0</li>
-                        </ul>
-                    </div>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>B.Tech in Mechanical Engineering</h3>
+                </div>
+                <div class="card">
+                    <h3>XII CBSE</h3>
+                </div>
+                <div class="card">
+                    <h3>X CBSE</h3>
                 </div>
             </div>
         </section>
 
         <section id="experience">
             <h2>Experience</h2>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Software Engineer at ABC Tech</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <ul>
-                            <li>Worked on developing software applications for various clients.</li>
-                            <li>Specialized in front-end development and UI/UX design.</li>
-                        </ul>
-                    </div>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Innovalance Learning Systems</h3>
+                </div>
+                <div class="card">
+                    <h3>Design Engineer</h3>
+                </div>
+                <div class="card">
+                    <h3>Mechanical Supervisor</h3>
                 </div>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Inventory Management System</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <ul>
-                            <li>Developed an inventory management system for a retail client.</li>
-                            <li>Implemented features such as stock tracking, order management, and sales analytics.</li>
-                        </ul>
-                    </div>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Title</h3>
+                    <p>BRITTLE FRACTURE IN 1050 STEEL.</p>
+                </div>
+                <div class="card">
+                    <h3>Title</h3>
+                    <p>YAGNI PRINCIPLE IN AGILE DEVELOPMENT.</p>
+                </div>
+                <div class="card">
+                    <h3>Title</h3>
+                    <p>HYBRID SOLAR-WIND ENERGY GENERATION SYSTEM.</p>
                 </div>
             </div>
         </section>
 
         <section id="startup">
             <h2>Startup</h2>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Co-Founder of Tech Solutions</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <ul>
-                            <li>Co-founded a tech startup focused on providing software solutions to small businesses.</li>
-                            <li>Led the development of the company's flagship product, an ERP system for small businesses.</li>
-                        </ul>
-                    </div>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Co-Founder & CPO</h3>
+                </div>
+                <div class="card">
+                    <h3>Building the first product & team for ERP Software Startup.</h3>
                 </div>
             </div>
         </section>
@@ -381,23 +377,17 @@
         <section id="skills">
             <h2>Skills</h2>
             <ul class="skills-list">
-                <li>HTML</li>
-                <li>CSS</li>
+                <li>Leadership</li>
+                <li>Design Thinking</li>
+                <li>Wireframing</li>
                 <li>JavaScript</li>
-                <li>React</li>
-                <li>Python</li>
-                <li>Project Management</li>
-                <li>Product Development</li>
-                <li>UI/UX Design</li>
+                <li>SQL</li>
+                <li>Team Management</li>
             </ul>
         </section>
-
-        
     </div>
-
     <footer>
-        <p>&copy; 2024 Mohammad Ali. All rights reserved.</p>
-        <a href="#">LinkedIn</a> | <a href="#">GitHub</a>
+        <p>&copy; 2023 Mohammad Ali. All rights reserved.</p>
     </footer>
 </body>
 </html>
